@@ -3,9 +3,19 @@
 
 #include "pch.h"
 #include <iostream>
+#include "ValueModel.h"
+
+using namespace core;
+using namespace std;
+
+void ValueModelTest() {
+	//ValueModel<float>* val = new ValueModel<float>(0.4f);
+	cout << "hello" << endl;
+}
 
 int main()
 {
+	ValueModelTest();
     std::cout << "Hello World!\n"; 
 }
 

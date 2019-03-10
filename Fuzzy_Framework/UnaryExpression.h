@@ -1,8 +1,20 @@
 #pragma once
-class UnaryExpression
+#ifndef UNARYEXPRESSION_H
+#define UNARYEXPRESSION_H
+
+#include "Expression.h"
+
+namespace core
 {
-public:
-	UnaryExpression();
-	virtual ~UnaryExpression();
-};
+	template <class T>
+	class UnaryExpression
+	{
+	public:
+		UnaryExpression() {};
+		virtual ~UnaryExpression() {};
+		virtual T evaluate(Expression<T>*) const = 0;
+	};
+}
+#endif // !UNARYEXPRESSION_H
+
 

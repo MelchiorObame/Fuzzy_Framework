@@ -42,6 +42,9 @@
     <ClInclude Include="ValueModel.h">
       <Filter>Fichiers d%27en-tête\core</Filter>
     </ClInclude>
+    <ClInclude Include="NullExpressionException.h">
+      <Filter>Fichiers d%27en-tête\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -66,6 +69,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="UnaryExpressionModel.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="NullExpressionException.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
