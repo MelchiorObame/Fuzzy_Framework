@@ -151,9 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryExpression.h" />
+    <ClInclude Include="BinaryExpressionModel.h" />
+    <ClInclude Include="Expression.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="UnaryExpression.h" />
+    <ClInclude Include="UnaryExpressionModel.h" />
+    <ClInclude Include="ValueModel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryExpression.cpp" />
+    <ClCompile Include="BinaryExpressionModel.cpp" />
+    <ClCompile Include="Expression.cpp" />
     <ClCompile Include="Fuzzy_Framework.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -161,6 +170,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="UnaryExpression.cpp" />
+    <ClCompile Include="UnaryExpressionModel.cpp" />
+    <ClCompile Include="ValueModel.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
