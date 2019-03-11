@@ -10,5 +10,8 @@
 #define PCH_H
 
 // TODO: Ajoutez les en-têtes à précompiler ici
+#include <stdio.h>
+#include <tchar.h>
+#include <SDKDDKVer.h>
 
 #endif //PCH_H

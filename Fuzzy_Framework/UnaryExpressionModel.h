@@ -1,4 +1,3 @@
-#pragma once
 #ifndef UNARYEXPRESSIONMODEL_H
 #define UNARYEXPRESSIONMODEL_H
 

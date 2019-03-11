@@ -1,4 +1,3 @@
-#pragma once
 #ifndef BINARYEXPRESSION_H
 #define BINARYEXPRESSION_H
 

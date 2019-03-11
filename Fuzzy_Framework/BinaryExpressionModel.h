@@ -1,4 +1,3 @@
-#pragma once
 #ifndef BINARYEXPRESSIONMODEL_H
 #define BINARYEXPRESSIONMODEL_H
 
@@ -14,7 +13,7 @@ namespace core
 
 	public:
 		BinaryExpressionModel(BinaryExpression<T>* _operateur, Expression<T>* _left, Expression<T>* _right);
-		BinaryExpressionModel();
+		BinaryExpressionModel() {};
 		virtual ~BinaryExpressionModel() {};
 
 		virtual T evaluate() const;
@@ -26,6 +25,30 @@ namespace core
 		BinaryExpression<T>* operateur;
 
 	};
+
+	template<class T>
+	inline BinaryExpressionModel<T>::BinaryExpressionModel(BinaryExpression<T>* _operateur, Expression<T>* _left, Expression<T>* _right):operateur(_operateur),left(_left),right(_right)
+	{
+	}
+
+	template<class T>
+	T BinaryExpressionModel<T>::evaluate() const
+	{	
+		if (left == NULL)
+			throw new NullExpressionException("left is null");
+		if (right == NULL)
+			throw new NullExpressionException("right is null");
+		return evaluate(left, right);
+	}
+
+	template<class T>
+	T BinaryExpressionModel<T>::evaluate(Expression<T>* l, Expression<T>* r) const
+	{
+		if (operateur == NULL)
+			throw new NullExpressionException("operator is null");
+		return operateur->evaluate(l, r);
+	}
+
 }
 
 #endif // !BINARYEXPRESSIONMODEL_H

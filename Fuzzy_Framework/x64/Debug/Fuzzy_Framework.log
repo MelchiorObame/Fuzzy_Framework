@@ -1,2 +1,11 @@
-﻿  Fuzzy_Framework.cpp
-  Fuzzy_Framework.vcxproj -> C:\Users\hp\source\repos\Ensisa\Fuzzy_Framework\x64\Debug\Fuzzy_Framework.exe
+﻿  pch.cpp
+  BinaryExpression.cpp
+  BinaryExpressionModel.cpp
+  Expression.cpp
+  Fuzzy_Framework.cpp
+  NullExpressionException.cpp
+  UnaryExpression.cpp
+  UnaryExpressionModel.cpp
+  ValueModel.cpp
+  Génération de code en cours...
+  Fuzzy_Framework.vcxproj -> C:\Users\hp\source\repos\Versions_Originales_Precedentes\Fuzzy_Framework\x64\Debug\Fuzzy_Framework.exe
