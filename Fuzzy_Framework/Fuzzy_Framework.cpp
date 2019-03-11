@@ -10,6 +10,8 @@
 #include "OrPlus.h"
 #include "ThenMin.h"
 #include "ThenMult.h"
+#include "AggMax.h"
+#include "AggPlus.h"
 
 using namespace core;
 using namespace fuzzy;
@@ -66,6 +68,20 @@ void ThenMultTest() {
 	cout << "ThenMult(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << operateur.evaluate(val1, val2) << endl;
 }
 
+void AggPlusTest() {
+	AggPlus<float> opAggPlus;
+	ValueModel<float>* val1 = new ValueModel<float>(1.7f);
+	ValueModel<float>* val2 = new ValueModel<float>(0.6f);
+	cout << "AggPlus(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << opAggPlus.evaluate(val1, val2) << endl;
+}
+
+void AggMaxTest() {
+	AggMax<float> opAggMax;
+	ValueModel<float>* val1 = new ValueModel<float>(1.7f);
+	ValueModel<float>* val2 = new ValueModel<float>(0.6f);
+	cout << "AggMax(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << opAggMax.evaluate(val1, val2) << endl;
+}
+
 int main()
 {
 	cout << "_____  Test du Framework  _____\n";
@@ -77,6 +93,8 @@ int main()
 	//OrMaxTest();
 	//ThenMinTest();
 	//ThenMultTest();
+	AggPlusTest();
+	AggMaxTest();
 	
    
 }

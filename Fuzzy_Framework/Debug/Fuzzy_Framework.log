@@ -1,6 +1,6 @@
-﻿  Fuzzy_Framework.cpp
-  Then.cpp
-  ThenMin.cpp
-  ThenMult.cpp
+﻿  Agg.cpp
+  AggMax.cpp
+  AggPlus.cpp
+  Fuzzy_Framework.cpp
   Génération de code en cours...
   Fuzzy_Framework.vcxproj -> C:\Users\hp\Documents\GitHub\Fuzzy_Framework\Debug\Fuzzy_Framework.exe
