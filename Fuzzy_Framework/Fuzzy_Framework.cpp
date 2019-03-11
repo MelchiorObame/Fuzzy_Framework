@@ -8,6 +8,8 @@
 #include"AndMult.h"
 #include "OrMax.h"
 #include "OrPlus.h"
+#include "ThenMin.h"
+#include "ThenMult.h"
 
 using namespace core;
 using namespace fuzzy;
@@ -39,7 +41,7 @@ void OrMaxTest()
 	OrMax<int> op;
 	ValueModel<int>* val1 = new ValueModel<int>(3);
 	ValueModel<int>* val2 = new ValueModel<int>(1);
-	std::cout << "OrMax(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << op.evaluate(val1, val2) << std::endl;
+	cout << "OrMax(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << op.evaluate(val1, val2) << endl;
 }
 
 void OrPlusTest()
@@ -47,9 +49,22 @@ void OrPlusTest()
 	OrPlus<int> op;
 	ValueModel<int>* val1 = new ValueModel<int>(3);
 	ValueModel<int>* val2 = new ValueModel<int>(1);
-	std::cout << "OrPlus(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << op.evaluate(val1, val2) << std::endl;
+	cout << "OrPlus(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << op.evaluate(val1, val2) << endl;
 }
 
+void ThenMinTest() {
+	ThenMin<int> operateur;
+	ValueModel<int>* val1 = new ValueModel<int>(3);
+	ValueModel<int>* val2 = new ValueModel<int>(1);
+	cout << "ThenMin(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << operateur.evaluate(val1, val2) << endl;
+}
+
+void ThenMultTest() {
+	ThenMult<int> operateur;
+	ValueModel<int>* val1 = new ValueModel<int>(3);
+	ValueModel<int>* val2 = new ValueModel<int>(1);
+	cout << "ThenMult(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << operateur.evaluate(val1, val2) << endl;
+}
 
 int main()
 {
@@ -60,6 +75,8 @@ int main()
 	//AndMultTest();
 	//OrPlusTest();
 	//OrMaxTest();
+	//ThenMinTest();
+	//ThenMultTest();
 	
    
 }
