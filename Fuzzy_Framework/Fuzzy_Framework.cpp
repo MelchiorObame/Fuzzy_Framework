@@ -6,6 +6,8 @@
 #include "ValueModel.h"
 #include "AndMin.h"
 #include"AndMult.h"
+#include "OrMax.h"
+#include "OrPlus.h"
 
 using namespace core;
 using namespace fuzzy;
@@ -27,17 +29,37 @@ void AndMinTest()
 void AndMultTest()
 {
 	AndMult<float> op;
-	ValueModel<float>* v1 = new ValueModel<float>(0.1f);
-	ValueModel<float>* v2 = new ValueModel<float>(0.6f);
-	cout << "AndMult(" << v1->evaluate() << ", " << v2->evaluate() << ") -> " << op.evaluate(v1, v2) <<endl;
+	ValueModel<float>* val1 = new ValueModel<float>(0.1f);
+	ValueModel<float>* val2 = new ValueModel<float>(0.6f);
+	cout << "AndMult(" << val1->evaluate() << ", " << val2->evaluate() << ") -> " << op.evaluate(val1, val2) <<endl;
 }
+
+void OrMaxTest()
+{
+	OrMax<int> op;
+	ValueModel<int>* val1 = new ValueModel<int>(3);
+	ValueModel<int>* val2 = new ValueModel<int>(1);
+	std::cout << "OrMax(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << op.evaluate(val1, val2) << std::endl;
+}
+
+void OrPlusTest()
+{
+	OrPlus<int> op;
+	ValueModel<int>* val1 = new ValueModel<int>(3);
+	ValueModel<int>* val2 = new ValueModel<int>(1);
+	std::cout << "OrPlus(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << op.evaluate(val1, val2) << std::endl;
+}
+
 
 int main()
 {
 	cout << "_____  Test du Framework  _____\n";
 	//ValueModelTest();
+	
 	//AndMinTest();
 	//AndMultTest();
+	//OrPlusTest();
+	//OrMaxTest();
 	
    
 }
