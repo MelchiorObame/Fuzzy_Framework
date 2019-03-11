@@ -8,12 +8,9 @@ namespace fuzzy
 	template<class T>
 	class And :public core::BinaryExpression<T>
 	{
-	public:
-		And();
+	public:;
 		virtual ~And() {};
 	};
 }
 
 #endif // !AND_H
-
-
