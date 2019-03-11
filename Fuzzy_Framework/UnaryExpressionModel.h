@@ -30,17 +30,17 @@ namespace core
 	template<class T>
 	T UnaryExpressionModel<T>::evaluate() const
 	{
-		if (operand == NULL)
-			throw new NullExpressionException("operand is null");
-		return evaluate(operand);
+		if ( operand != NULL )
+			//throw new NullExpressionException("operand is null");
+			return evaluate(operand);
 	}
 
 	template<class T>
 	T UnaryExpressionModel<T>::evaluate(Expression<T>* o) const
 	{
-		if (operateur == NULL)
-			throw new NullExpressionException("operand is null");
-		return operateur.evaluate(o);
+		if (operateur != NULL)
+			//throw new NullExpressionException("operator is null");
+			return operateur.evaluate(o);
 	}
 
 

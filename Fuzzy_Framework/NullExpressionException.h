@@ -8,7 +8,7 @@ namespace core
 	class NullExpressionException : public std::exception
 	{
 	public:
-		NullExpressionException(std::string _message) :message(_message) {};
+		NullExpressionException(std::string _message) : message(_message) {};
 		virtual ~NullExpressionException() {};
 	private:
 		std::string message;

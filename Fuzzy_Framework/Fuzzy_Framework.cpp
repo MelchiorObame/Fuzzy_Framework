@@ -10,7 +10,7 @@ using namespace std;
 
 void ValueModelTest() {
 	ValueModel<float>* val = new ValueModel<float>(0.4f);
-	cout << "fait" << endl;
+	cout << "ValueModel fait" << endl;
 }
 
 int main()
