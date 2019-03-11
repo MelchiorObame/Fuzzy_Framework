@@ -2,7 +2,7 @@
 class Then
 {
 public:
-	Then();
-	virtual ~Then();
+	Then() {};
+	virtual ~Then() {};
 };
 

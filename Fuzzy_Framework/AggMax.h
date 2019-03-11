@@ -2,7 +2,7 @@
 class AggMax
 {
 public:
-	AggMax();
-	virtual ~AggMax();
+	AggMax() {};
+	virtual ~AggMax() {};
 };
 

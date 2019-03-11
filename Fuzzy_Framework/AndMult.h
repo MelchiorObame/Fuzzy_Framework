@@ -2,7 +2,7 @@
 class AndMult
 {
 public:
-	AndMult();
-	virtual ~AndMult();
+	AndMult() {};
+	virtual ~AndMult() {};
 };
 

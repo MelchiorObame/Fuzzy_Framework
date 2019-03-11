@@ -2,7 +2,7 @@
 class NotMinus1
 {
 public:
-	NotMinus1();
-	virtual ~NotMinus1();
+	NotMinus1() {};
+	virtual ~NotMinus1() {};
 };
 

@@ -2,7 +2,7 @@
 class Or
 {
 public:
-	Or();
-	virtual ~Or();
+	Or() {};
+	virtual ~Or() {};
 };
 

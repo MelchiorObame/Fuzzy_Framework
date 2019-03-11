@@ -2,7 +2,7 @@
 class ThenMin
 {
 public:
-	ThenMin();
-	virtual ~ThenMin();
+	ThenMin() {};
+	virtual ~ThenMin() {};
 };
 

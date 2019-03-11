@@ -2,7 +2,7 @@
 class ThenMult
 {
 public:
-	ThenMult();
-	virtual ~ThenMult();
+	ThenMult() {};
+	virtual ~ThenMult() {};
 };
 

@@ -2,7 +2,7 @@
 class Agg
 {
 public:
-	Agg();
-	virtual ~Agg();
+	Agg() {};
+	virtual ~Agg() {};
 };
 

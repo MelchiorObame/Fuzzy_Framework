@@ -2,7 +2,7 @@
 class AndMin
 {
 public:
-	AndMin();
-	virtual ~AndMin();
+	AndMin() {};
+	virtual ~AndMin() {};
 };
 

@@ -2,11 +2,3 @@
 #include "AndMult.h"
 
 
-AndMult::AndMult()
-{
-}
-
-
-AndMult::~AndMult()
-{
-}

@@ -2,7 +2,7 @@
 class AggPlus
 {
 public:
-	AggPlus();
-	virtual ~AggPlus();
+	AggPlus() {};
+	virtual ~AggPlus() {};
 };
 

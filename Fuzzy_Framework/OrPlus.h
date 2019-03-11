@@ -2,7 +2,7 @@
 class OrPlus
 {
 public:
-	OrPlus();
-	virtual ~OrPlus();
+	OrPlus() {};
+	virtual ~OrPlus() {};
 };
 

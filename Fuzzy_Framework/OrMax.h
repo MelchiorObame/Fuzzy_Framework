@@ -2,7 +2,7 @@
 class OrMax
 {
 public:
-	OrMax();
-	virtual ~OrMax();
+	OrMax() {};
+	virtual ~OrMax() {};
 };
 

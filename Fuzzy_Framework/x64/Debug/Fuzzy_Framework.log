@@ -1,0 +1,23 @@
+﻿  Agg.cpp
+  AggMax.cpp
+  AggPlus.cpp
+  And.cpp
+  AndMin.cpp
+  AndMult.cpp
+  CogDefuzz.cpp
+  Is.cpp
+  IsTriangle.cpp
+  MandaniDefuzz.cpp
+  Not.cpp
+  NotMinus1.cpp
+  Or.cpp
+  OrMax.cpp
+  OrPlus.cpp
+  SugenoThen.cpp
+  Then.cpp
+  ThenMin.cpp
+  ThenMult.cpp
+  ValueModel.cpp
+  Génération de code en cours...
+  LINK : C:\Users\hp\Documents\GitHub\Fuzzy_Framework\x64\Debug\Fuzzy_Framework.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
+  Fuzzy_Framework.vcxproj -> C:\Users\hp\Documents\GitHub\Fuzzy_Framework\x64\Debug\Fuzzy_Framework.exe

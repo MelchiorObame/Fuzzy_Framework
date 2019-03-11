@@ -2,7 +2,7 @@
 class Not
 {
 public:
-	Not();
-	virtual ~Not();
+	Not() {};
+	virtual ~Not() {};
 };
 

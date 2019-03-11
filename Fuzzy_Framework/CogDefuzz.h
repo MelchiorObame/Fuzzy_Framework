@@ -2,7 +2,7 @@
 class CogDefuzz
 {
 public:
-	CogDefuzz();
-	virtual ~CogDefuzz();
+	CogDefuzz() {};
+	virtual ~CogDefuzz() {};
 };
 

@@ -2,7 +2,7 @@
 class Is
 {
 public:
-	Is();
-	virtual ~Is();
+	Is() {};
+	virtual ~Is() {};
 };
 

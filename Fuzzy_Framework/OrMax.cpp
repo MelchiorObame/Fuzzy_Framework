@@ -2,11 +2,3 @@
 #include "OrMax.h"
 
 
-OrMax::OrMax()
-{
-}
-
-
-OrMax::~OrMax()
-{
-}

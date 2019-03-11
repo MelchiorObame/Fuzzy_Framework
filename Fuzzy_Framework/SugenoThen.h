@@ -2,7 +2,7 @@
 class SugenoThen
 {
 public:
-	SugenoThen();
-	virtual ~SugenoThen();
+	SugenoThen() {};
+	virtual ~SugenoThen() {};
 };
 

@@ -2,7 +2,7 @@
 class MandaniDefuzz
 {
 public:
-	MandaniDefuzz();
-	virtual ~MandaniDefuzz();
+	MandaniDefuzz() {};
+	virtual ~MandaniDefuzz() {};
 };
 
