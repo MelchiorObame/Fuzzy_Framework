@@ -35,7 +35,7 @@ void AndMultTest()
 int main()
 {
 	cout << "_____  Test du Framework  _____\n";
-	ValueModelTest();
+	//ValueModelTest();
 	//AndMinTest();
 	//AndMultTest();
 	
