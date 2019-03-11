@@ -12,6 +12,8 @@
 #include "ThenMult.h"
 #include "AggMax.h"
 #include "AggPlus.h"
+#include "IsTriangle.h"
+#include "NotMinus1.h"
 
 using namespace core;
 using namespace fuzzy;
@@ -82,6 +84,24 @@ void AggMaxTest() {
 	cout << "AggMax(" << val1->evaluate() << ", " << val2->evaluate() << ")-> " << opAggMax.evaluate(val1, val2) << endl;
 }
 
+void NotMinus1Test() {
+	NotMinus1<float> opNotMinus1;
+	ValueModel<float>* value = new ValueModel<float>(0.7f);
+	cout << "NotMinus1(" << value->evaluate() << ")-> " << opNotMinus1.evaluate(value)<<endl;
+}
+
+void IsTriangleTest() {
+	float min, mid, max;
+	min = 0.3f;
+	mid = 0.6f;
+	max = 2.0f;
+	IsTriangle<float> opIsTriangle(min,mid,max);
+	ValueModel<float>* value = new ValueModel<float>(0.9f);
+	cout << "IsTriangle(" << value->evaluate() << ")-> " << opIsTriangle.evaluate(value)<<endl;
+}
+
+
+
 int main()
 {
 	cout << "_____  Test du Framework  _____\n";
@@ -93,8 +113,10 @@ int main()
 	//OrMaxTest();
 	//ThenMinTest();
 	//ThenMultTest();
-	AggPlusTest();
-	AggMaxTest();
+	//AggPlusTest();
+	//AggMaxTest();
+	NotMinus1Test();
+	IsTriangleTest();   //reste à definir evaluation de IsTriangle
 	
    
 }
