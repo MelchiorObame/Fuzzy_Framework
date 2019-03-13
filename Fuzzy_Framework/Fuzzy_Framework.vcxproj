@@ -180,26 +180,9 @@
     <ClInclude Include="ValueModel.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Agg.cpp" />
-    <ClCompile Include="AggMax.cpp" />
-    <ClCompile Include="AggPlus.cpp" />
-    <ClCompile Include="And.cpp" />
-    <ClCompile Include="AndMin.cpp" />
-    <ClCompile Include="AndMult.cpp" />
-    <ClCompile Include="BinaryExpression.cpp" />
-    <ClCompile Include="BinaryExpressionModel.cpp" />
     <ClCompile Include="CogDefuzz.cpp" />
-    <ClCompile Include="Expression.cpp" />
     <ClCompile Include="Fuzzy_Framework.cpp" />
-    <ClCompile Include="Is.cpp" />
-    <ClCompile Include="IsTriangle.cpp" />
     <ClCompile Include="MandaniDefuzz.cpp" />
-    <ClCompile Include="Not.cpp" />
-    <ClCompile Include="NotMinus1.cpp" />
-    <ClCompile Include="NullExpressionException.cpp" />
-    <ClCompile Include="Or.cpp" />
-    <ClCompile Include="OrMax.cpp" />
-    <ClCompile Include="OrPlus.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -207,12 +190,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SugenoThen.cpp" />
-    <ClCompile Include="Then.cpp" />
-    <ClCompile Include="ThenMin.cpp" />
-    <ClCompile Include="ThenMult.cpp" />
-    <ClCompile Include="UnaryExpression.cpp" />
-    <ClCompile Include="UnaryExpressionModel.cpp" />
-    <ClCompile Include="ValueModel.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

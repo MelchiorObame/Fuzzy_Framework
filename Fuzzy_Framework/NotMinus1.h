@@ -1,10 +1,7 @@
 #ifndef NOTMINUS1_H
 #define NOTMINUS1_H
 
-#include "Expression.h"
-#include "UnaryExpression.h"
 #include "Not.h"
-
 
 namespace fuzzy
 {
@@ -14,7 +11,7 @@ namespace fuzzy
 	public:
 		NotMinus1() {};
 		virtual ~NotMinus1() {};
-		T evaluate(core::Expression<T>* operand) const;
+		virtual T evaluate(core::Expression<T>* ) const;
 	};
 
 

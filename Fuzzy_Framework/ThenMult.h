@@ -2,7 +2,6 @@
 #define THENMULT_H
 
 #include "Then.h"
-#include "Expression.h"
 
 namespace fuzzy
 {
@@ -12,15 +11,14 @@ namespace fuzzy
 	public:
 		ThenMult() {};
 		virtual ~ThenMult() {};
-
-		T evaluate(core::Expression<T>*, core::Expression<T>*) const;
+		virtual T evaluate(core::Expression<T>*, core::Expression<T>*) const;
 	};
 
 
 	template <class T>
-	T ThenMult<T>::evaluate(core::Expression<T>* left, core::Expression<T>* right) const
+	T ThenMult<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const
 	{
-		return left->evaluate()*right->evaluate();
+		return l->evaluate()*r->evaluate();
 	}
 
 }

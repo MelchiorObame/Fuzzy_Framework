@@ -21,8 +21,8 @@ namespace core
 	};
 
 	template <class T>
-	void ValueModel<T>::setValue(const T& value) {
-		this->value = value;
+	void ValueModel<T>::setValue(const T& v) {
+		this->value = v;
 	}
 
 	template <class T>

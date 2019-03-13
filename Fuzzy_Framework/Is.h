@@ -1,7 +1,6 @@
 #ifndef IS_H
 #define IS_H
 
-#include "Expression.h"
 #include "UnaryExpression.h"
 
 namespace fuzzy
@@ -12,7 +11,6 @@ namespace fuzzy
 	public:
 		Is() {};
 		virtual ~Is() {};
-		T evaluate(core::Expression<T>*) const = 0;
 	};
 }
 #endif //!IS_H

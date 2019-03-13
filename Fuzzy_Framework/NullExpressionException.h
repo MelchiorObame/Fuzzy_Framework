@@ -10,6 +10,7 @@ namespace core
 	public:
 		NullExpressionException(std::string _message) : message(_message) {};
 		virtual ~NullExpressionException() {};
+	
 	private:
 		std::string message;
 	};

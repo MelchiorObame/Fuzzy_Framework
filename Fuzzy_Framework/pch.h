@@ -12,6 +12,8 @@
 // TODO: Ajoutez les en-têtes à précompiler ici
 #include <stdio.h>
 #include <tchar.h>
+#include <assert.h>
+#include <numeric>
 #include <SDKDDKVer.h>
 
 #endif //PCH_H

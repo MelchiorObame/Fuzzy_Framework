@@ -1,8 +1,7 @@
 #ifndef BINARYEXPRESSIONMODEL_H
 #define BINARYEXPRESSIONMODEL_H
 
-#include "Expression.h"
-#include "BinaryExpression.h"
+
 #include "NullExpressionException.h"
 
 namespace core
@@ -18,6 +17,9 @@ namespace core
 
 		virtual T evaluate() const;
 		virtual T evaluate(Expression<T>* l, Expression<T>* r) const;
+
+		BinaryExpression<T>* GetOpe();
+		void SetOpe(BinaryExpression<T>* op);
 
 	private:
 		Expression<T>* left;
@@ -47,6 +49,18 @@ namespace core
 		if (operateur == NULL)
 			throw new NullExpressionException("operator is null");
 		return operateur->evaluate(l, r);
+	}
+
+	template<class T>
+	inline BinaryExpression<T>* BinaryExpressionModel<T>::GetOpe()
+	{
+		return operateur;
+	}
+
+	template<class T>
+	inline void BinaryExpressionModel<T>::SetOpe(BinaryExpression<T>* op)
+	{
+		this->operateur = op;
 	}
 
 }

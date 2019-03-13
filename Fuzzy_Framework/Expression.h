@@ -12,4 +12,4 @@ namespace core
 	};
 }
 
-#endif
+#endif //!EXPRESSION_H

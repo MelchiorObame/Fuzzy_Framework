@@ -6,7 +6,6 @@
 
 namespace fuzzy
 {
-
 	template<class T>
 	class AggPlus : public Agg<T>
 	{
@@ -17,9 +16,9 @@ namespace fuzzy
 	};
 
 	template <class T>
-	T AggPlus<T>::evaluate(core::Expression<T>* left, core::Expression<T>* right) const
+	T AggPlus<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const
 	{
-		return  left->evaluate()+ right->evaluate();
+		return  l->evaluate()+ r->evaluate();
 	}
 }
 #endif //! AGGPLUS_H

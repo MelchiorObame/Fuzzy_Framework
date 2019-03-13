@@ -2,7 +2,6 @@
 #define ANDMIN_H
 
 #include "And.h"
-#include "Expression.h"
 
 namespace fuzzy
 {

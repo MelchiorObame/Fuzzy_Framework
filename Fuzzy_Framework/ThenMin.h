@@ -2,7 +2,6 @@
 #define THENMIN_H
 
 #include "Then.h"
-#include "Expression.h"
 
 namespace fuzzy
 {
@@ -12,15 +11,14 @@ namespace fuzzy
 	public:
 		ThenMin() {};
 		virtual ~ThenMin() {};
-
-		T evaluate(core::Expression<T>*, core::Expression<T>*) const;
+		virtual T evaluate(core::Expression<T>*, core::Expression<T>*) const;
 	};
 
 	template <class T>
-	T ThenMin<T>::evaluate(core::Expression<T>* left, core::Expression<T>* right) const
+	T ThenMin<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const
 	{
-		T l_Evaluation = left->evaluate();
-		T r_Evaluation = right->evaluate();
+		T l_Evaluation = l->evaluate();
+		T r_Evaluation = r->evaluate();
 		return (l_Evaluation <= r_Evaluation) ? l_Evaluation : r_Evaluation;
 	}
 

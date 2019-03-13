@@ -2,18 +2,16 @@
 #define ORPLUS_H
 
 #include "Or.h"
-#include "Expression.h"
 
 namespace fuzzy
 {
-
 	template<class T>
 	class OrPlus : public Or<T>
 	{
 	public:
 		OrPlus() {};
 		virtual ~OrPlus() {};
-		T evaluate(core::Expression<T>* r, core::Expression<T>* l) const;
+		virtual T evaluate(core::Expression<T>*, core::Expression<T>*) const;
 	};
 
 	template <class T>

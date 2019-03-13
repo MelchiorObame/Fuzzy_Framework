@@ -2,8 +2,6 @@
 #define ORMAX_H
 
 #include "Or.h"
-#include "Expression.h"
-
 
 namespace fuzzy
 {
@@ -17,9 +15,9 @@ namespace fuzzy
 	};
 
 	template <class T>
-	T OrMax<T>::evaluate(core::Expression<T>* left, core::Expression<T>* right) const {
-		T l_Evaluation = left->evaluate();
-		T r_Evaluation = right->evaluate();
+	T OrMax<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const {
+		T l_Evaluation = l->evaluate();
+		T r_Evaluation = r->evaluate();
 		return (l_Evaluation >= r_Evaluation) ? l_Evaluation : r_Evaluation;
 	}
 }

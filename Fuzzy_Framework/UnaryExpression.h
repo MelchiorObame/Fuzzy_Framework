@@ -1,7 +1,6 @@
 #ifndef UNARYEXPRESSION_H
 #define UNARYEXPRESSION_H
 
-#include "Expression.h"
 
 namespace core
 {
@@ -11,6 +10,7 @@ namespace core
 	public:
 		UnaryExpression() {};
 		virtual ~UnaryExpression() {};
+
 		virtual T evaluate(Expression<T>*) const = 0;
 	};
 }
