@@ -102,11 +102,11 @@
     <ClInclude Include="ThenMult.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
-    <ClInclude Include="UnaryShadowExpression.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="BinaryShadowExpression.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\core</Filter>
+    </ClInclude>
+    <ClInclude Include="UnaryShadowExpression.h">
+      <Filter>Fichiers d%27en-tête\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
