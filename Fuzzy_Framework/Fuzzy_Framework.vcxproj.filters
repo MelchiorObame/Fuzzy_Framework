@@ -102,6 +102,12 @@
     <ClInclude Include="ThenMult.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="UnaryShadowExpression.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryShadowExpression.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -117,6 +123,12 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="CogDefuzz.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="UnaryShadowExpression.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryShadowExpression.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
