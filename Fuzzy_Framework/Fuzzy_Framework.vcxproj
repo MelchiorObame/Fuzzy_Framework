@@ -159,6 +159,7 @@
     <ClInclude Include="AndMult.h" />
     <ClInclude Include="BinaryExpression.h" />
     <ClInclude Include="BinaryExpressionModel.h" />
+    <ClInclude Include="BinaryShadowExpression.h" />
     <ClInclude Include="CogDefuzz.h" />
     <ClInclude Include="Expression.h" />
     <ClInclude Include="Is.h" />
@@ -177,9 +178,11 @@
     <ClInclude Include="ThenMult.h" />
     <ClInclude Include="UnaryExpression.h" />
     <ClInclude Include="UnaryExpressionModel.h" />
+    <ClInclude Include="UnaryShadowExpression.h" />
     <ClInclude Include="ValueModel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryShadowExpression.cpp" />
     <ClCompile Include="CogDefuzz.cpp" />
     <ClCompile Include="Fuzzy_Framework.cpp" />
     <ClCompile Include="MandaniDefuzz.cpp" />
@@ -190,6 +193,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SugenoThen.cpp" />
+    <ClCompile Include="UnaryShadowExpression.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
