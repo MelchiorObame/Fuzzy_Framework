@@ -163,6 +163,9 @@
     <ClInclude Include="CogDefuzz.h" />
     <ClInclude Include="Expression.h" />
     <ClInclude Include="Is.h" />
+    <ClInclude Include="IsGaussian.h" />
+    <ClInclude Include="IsRectangle.h" />
+    <ClInclude Include="IsTrapeze.h" />
     <ClInclude Include="IsTriangle.h" />
     <ClInclude Include="MandaniDefuzz.h" />
     <ClInclude Include="Not.h" />
@@ -185,6 +188,9 @@
     <ClCompile Include="BinaryShadowExpression.cpp" />
     <ClCompile Include="CogDefuzz.cpp" />
     <ClCompile Include="Fuzzy_Framework.cpp" />
+    <ClCompile Include="IsGaussian.cpp" />
+    <ClCompile Include="IsRectangle.cpp" />
+    <ClCompile Include="IsTrapeze.cpp" />
     <ClCompile Include="MandaniDefuzz.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

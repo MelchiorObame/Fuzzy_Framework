@@ -28,13 +28,10 @@ namespace fuzzy
 	T IsTriangle<T>::evaluate(core::Expression<T>* o) const
 	{
 		T val = o->evaluate();
-		if (val > min && val < mid)
+		if (val >= min && val <= mid)
 			return (val - min) / (mid - min);
-		if (val == mid)
-			return 1;
-		if (val > mid && val < max)
+		if (val >= mid && val <= max)
 			return (max - val) / (max - mid);
-
 		return 0;
 		
 	}

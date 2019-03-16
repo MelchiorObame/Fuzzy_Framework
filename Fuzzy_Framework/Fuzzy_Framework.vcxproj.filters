@@ -108,6 +108,15 @@
     <ClInclude Include="UnaryShadowExpression.h">
       <Filter>Fichiers d%27en-tête\core</Filter>
     </ClInclude>
+    <ClInclude Include="IsGaussian.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="IsRectangle.h">
+      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="IsTrapeze.h">
+      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -129,6 +138,15 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="BinaryShadowExpression.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="IsTrapeze.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="IsRectangle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="IsGaussian.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

@@ -15,6 +15,9 @@
 #include "AggPlus.h"
 #include "IsTriangle.h"
 #include "NotMinus1.h"
+#include "IsRectangle.h"
+#include "IsTrapeze.h"
+
 
 using namespace core;
 using namespace fuzzy;
@@ -104,11 +107,41 @@ void IsTriangleTest() {
 	assert(result.evaluate() == (max - value.evaluate()) / (max - mid));
 }
 
+void IsRectangleTest() {
+	float start, end;
+	start = 2.0f;
+	end = 4.0f;
+	IsRectangle<float> op(start,end);
+	ValueModel<float> value(1.0f);
+	ValueModel<float> result = op.evaluate(&value);
+	assert(result.evaluate()==0);
+}
+
+void IsTrapezeTest() {
+	float start,ltop,rtop,end;
+	start = 1.0f;
+	ltop = 3.0f;
+	rtop = 5.0f;
+	end = 6.0f;
+	IsTrapeze<float> op(start,ltop,rtop, end);
+	ValueModel<float> value(2.0f);
+	ValueModel<float> result = op.evaluate(&value);
+	ValueModel<float> valueMid(4.0f);
+	ValueModel<float> resultMid = op.evaluate(&valueMid);
+	ValueModel<float> value3(5.3f);
+	ValueModel<float> result3 = op.evaluate(&value3);
+	assert(result.evaluate() == (value.evaluate() - start)/(ltop - start));
+	assert(resultMid.evaluate() == 1);
+	assert(result3.evaluate() == (end-value3.evaluate())/(end -rtop));
+
+}
+
+
 
 
 int main()
 {
-	cout << "::Test du Framework::\n";
+	cout << ":: Testing ...\n";
 	ValueModelTest();
 	AndMinTest();
 	AndMultTest();
@@ -119,7 +152,10 @@ int main()
 	AggPlusTest();
 	AggMaxTest();
 	NotMinus1Test();
-	IsTriangleTest(); 
+	IsTriangleTest();
+	IsRectangleTest();
+	IsTrapezeTest();
+	cout << "-> All Test :ok" << endl;
 	
    
 }
