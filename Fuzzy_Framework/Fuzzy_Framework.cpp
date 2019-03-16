@@ -17,6 +17,7 @@
 #include "NotMinus1.h"
 #include "IsRectangle.h"
 #include "IsTrapeze.h"
+#include "IsGaussian.h"
 
 
 using namespace core;
@@ -119,10 +120,7 @@ void IsRectangleTest() {
 
 void IsTrapezeTest() {
 	float start,ltop,rtop,end;
-	start = 1.0f;
-	ltop = 3.0f;
-	rtop = 5.0f;
-	end = 6.0f;
+	start = 1.0f ,  ltop = 3.0f,   rtop = 5.0f,  end = 6.0f;
 	IsTrapeze<float> op(start,ltop,rtop, end);
 	ValueModel<float> value(2.0f);
 	ValueModel<float> result = op.evaluate(&value);
@@ -133,15 +131,22 @@ void IsTrapezeTest() {
 	assert(result.evaluate() == (value.evaluate() - start)/(ltop - start));
 	assert(resultMid.evaluate() == 1);
 	assert(result3.evaluate() == (end-value3.evaluate())/(end -rtop));
-
 }
 
-
+void IsGaussianTest()
+{
+	float mean, stdDev;
+	mean = 3.4f, stdDev = 0.7f;
+	IsGaussian<float> op(mean, stdDev);
+	ValueModel<float> value(1.2f);
+	ValueModel<float> result = op.evaluate(&value);
+	assert(result.evaluate()== exp(-pow((value.evaluate()-mean),2)/(2*pow(stdDev, 2))));
+}
 
 
 int main()
 {
-	cout << ":: Testing ...\n";
+	cout << "Testing ...\n";
 	ValueModelTest();
 	AndMinTest();
 	AndMultTest();
@@ -155,6 +160,7 @@ int main()
 	IsTriangleTest();
 	IsRectangleTest();
 	IsTrapezeTest();
+	IsGaussianTest();
 	cout << "-> All Test :ok" << endl;
 	
    
