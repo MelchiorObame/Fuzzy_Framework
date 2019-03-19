@@ -1,2 +1,8 @@
-﻿  Fuzzy_Framework.cpp
-  Fuzzy_Framework.vcxproj -> C:\Users\hp\Documents\GitHub\Fuzzy_Framework\Debug\Fuzzy_Framework.exe
+﻿  pch.cpp
+  CogDefuzz.cpp
+  Fuzzy_Framework.cpp
+  MandaniDefuzz.cpp
+  SugenoThen.cpp
+  Generating Code...
+  LINK : J:\ENSISA\Lang et Frameworks\Fuzzy_Framework\Debug\Fuzzy_Framework.exe not found or not built by the last incremental link; performing full link
+  Fuzzy_Framework.vcxproj -> J:\ENSISA\Lang et Frameworks\Fuzzy_Framework\Debug\Fuzzy_Framework.exe
