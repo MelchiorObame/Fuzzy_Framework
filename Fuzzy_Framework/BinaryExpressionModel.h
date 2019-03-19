@@ -3,6 +3,7 @@
 
 
 #include "NullExpressionException.h"
+#include "BinaryExpression.h"
 
 namespace core
 {

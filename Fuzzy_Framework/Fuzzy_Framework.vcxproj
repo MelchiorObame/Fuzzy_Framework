@@ -168,7 +168,10 @@
     <ClInclude Include="IsSigmoid.h" />
     <ClInclude Include="IsTrapeze.h" />
     <ClInclude Include="IsTriangle.h" />
-    <ClInclude Include="MandaniDefuzz.h" />
+    <ClInclude Include="MamdaniDefuzz.h" />
+    <ClInclude Include="NaryExpression.h" />
+    <ClInclude Include="NaryExpressionModel.h" />
+    <ClInclude Include="NaryShadowExpression.h" />
     <ClInclude Include="Not.h" />
     <ClInclude Include="NotMinus1.h" />
     <ClInclude Include="NullExpressionException.h" />
@@ -176,6 +179,8 @@
     <ClInclude Include="OrMax.h" />
     <ClInclude Include="OrPlus.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="SugenoConclusion.h" />
+    <ClInclude Include="SugenoDefuzz.h" />
     <ClInclude Include="SugenoThen.h" />
     <ClInclude Include="Then.h" />
     <ClInclude Include="ThenMin.h" />
@@ -186,16 +191,13 @@
     <ClInclude Include="ValueModel.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CogDefuzz.cpp" />
     <ClCompile Include="Fuzzy_Framework.cpp" />
-    <ClCompile Include="MandaniDefuzz.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SugenoThen.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -63,16 +63,10 @@
     <ClInclude Include="AndMult.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
-    <ClInclude Include="CogDefuzz.h">
-      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
-    </ClInclude>
     <ClInclude Include="Is.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
     <ClInclude Include="IsTriangle.h">
-      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
-    </ClInclude>
-    <ClInclude Include="MandaniDefuzz.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
     <ClInclude Include="Not.h">
@@ -88,9 +82,6 @@
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
     <ClInclude Include="OrPlus.h">
-      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
-    </ClInclude>
-    <ClInclude Include="SugenoThen.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
     <ClInclude Include="Then.h">
@@ -120,21 +111,36 @@
     <ClInclude Include="IsSigmoid.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="NaryExpression.h">
+      <Filter>Fichiers d%27en-tête\core</Filter>
+    </ClInclude>
+    <ClInclude Include="NaryExpressionModel.h">
+      <Filter>Fichiers d%27en-tête\core</Filter>
+    </ClInclude>
+    <ClInclude Include="CogDefuzz.h">
+      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="NaryShadowExpression.h">
+      <Filter>Fichiers d%27en-tête\core</Filter>
+    </ClInclude>
+    <ClInclude Include="MamdaniDefuzz.h">
+      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="SugenoThen.h">
+      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="SugenoDefuzz.h">
+      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="SugenoConclusion.h">
+      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Fuzzy_Framework.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="SugenoThen.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="MandaniDefuzz.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="CogDefuzz.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
