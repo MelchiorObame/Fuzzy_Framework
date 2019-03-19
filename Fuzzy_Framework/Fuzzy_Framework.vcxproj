@@ -165,6 +165,7 @@
     <ClInclude Include="Is.h" />
     <ClInclude Include="IsGaussian.h" />
     <ClInclude Include="IsRectangle.h" />
+    <ClInclude Include="IsSigmoid.h" />
     <ClInclude Include="IsTrapeze.h" />
     <ClInclude Include="IsTriangle.h" />
     <ClInclude Include="MandaniDefuzz.h" />

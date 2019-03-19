@@ -18,6 +18,7 @@
 #include "IsRectangle.h"
 #include "IsTrapeze.h"
 #include "IsGaussian.h"
+#include "IsSigmoid.h"
 
 
 using namespace core;
@@ -143,6 +144,16 @@ void IsGaussianTest()
 	assert(result.evaluate()== exp(-pow((value.evaluate()-mean),2)/(2*pow(stdDev, 2))));
 }
 
+void IsSigmoidTest() 
+{
+	float pente, inflection;
+	pente = 0.7f, inflection = 2.0f;
+	IsSigmoid<float> op(pente,inflection);
+	ValueModel<float> value(1.5f);
+	ValueModel<float> result = op.evaluate(&value);
+	assert(result.evaluate() == 1/(1 + exp(-pente*( value.evaluate()-inflection)) ) );
+}
+
 
 int main()
 {
@@ -161,6 +172,7 @@ int main()
 	IsRectangleTest();
 	IsTrapezeTest();
 	IsGaussianTest();
+	IsSigmoidTest();
 	cout << "-> All Test :ok" << endl;
 	
    
