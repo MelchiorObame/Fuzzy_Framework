@@ -2,7 +2,6 @@
 #define SUGENOCONCLUSION_H
 
 #include "NaryExpression.h"
-#include <vector>
 
 namespace fuzzy
 {
@@ -24,9 +23,18 @@ namespace fuzzy
 	template<class T>
 	inline T SugenoConclusion<T>::evaluate(std::vector<const core::Expression<T>*>* operands) const
 	{
-		return T();
+		std::vector<T>::const_iterator iter_coeff = coeff->begin();
+		std::vector<const core::Expression<T>*>::const_iterator iter_expr = operands->begin();
+		T  result = 0;
+		
+		while (iter_coeff != coeff->end() && iter_expr != operands->end()) {
+			T eval = (*iter_expr)->evaluate();  // evaluation de la regle courante
+			result += (*iter_coeff)*eval //multiplication par le coefficient associé
+			iter_expr++;
+			iter_coeff++;
+		}
+		return result;
 	}
-
 }
 
 #endif // !SUGENOCONCLUSION_H

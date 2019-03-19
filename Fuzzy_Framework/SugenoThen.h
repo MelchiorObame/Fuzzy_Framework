@@ -24,7 +24,8 @@ namespace fuzzy
 	template<class T>
 	inline T SugenoThen<T>::evaluate(core::Expression<T>* l, core::Expression<T>* r) const
 	{
-		return T();
+		premiseValue = l->evaluate();
+		return premiseValue * r->evaluate();
 	}
 
 	template<class T>
