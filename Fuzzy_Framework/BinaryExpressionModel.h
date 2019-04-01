@@ -1,7 +1,6 @@
 #ifndef BINARYEXPRESSIONMODEL_H
 #define BINARYEXPRESSIONMODEL_H
 
-
 #include "NullExpressionException.h"
 
 namespace core
