@@ -5,7 +5,7 @@
 #include "BinaryExpression.h"
 namespace core {
 	template <class T>
-	class ExpressionFactory : public Expression<T>
+	class ExpressionFactory 
 	{
 	public:
 		ExpressionFactory(Expression<T>* _memory) ;
@@ -34,17 +34,20 @@ namespace core {
 	}
 
 	template<class T>
-	Expression<T>* ExpressionFactory<T>::newUnary(UnaryExpression<T>*  _operateur, Expression<T>* _operand) : operateur(_operateur), operand(_operand) const
-	{
-		return new UnaryExpressionModel(operateur,operand);
-	}
-
-
-	template<class T>
-	Expression<T>* ExpressionFactory<T>::newBinary(BinaryExpression<T>*  _ope, Expression<T>* _left, Expression<T>* _right) : ope(_ope), left(_left), right(_right) const
+	inline Expression<T>* ExpressionFactory<T>::newUnary(UnaryExpression<T>* _operateur, Expression<T>* _operand) const
 	{
 		return new UnaryExpressionModel(operateur, operand);
 	}
+
+	template<class T>
+	inline Expression<T>* ExpressionFactory<T>::newBinary(BinaryExpression<T>* _ope, Expression<T>* _left, Expression<T>* _right) const
+	{
+		return new UnaryExpressionModel(operateur, operand);
+	}
+
+
+
+	
 }
 
 #endif 

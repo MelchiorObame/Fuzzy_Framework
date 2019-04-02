@@ -2,6 +2,8 @@
 #define BINARYEXPRESSIONMODEL_H
 
 #include "NullExpressionException.h"
+#include "BinaryExpression.h"
+#include "Expression.h"
 
 namespace core
 {
