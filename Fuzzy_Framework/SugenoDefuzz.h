@@ -31,7 +31,7 @@ namespace fuzzy
 			denum += sth->getPremiseValue();
 		}
 		if (denum != 0)
-			retuen num / denum;
+			return num / denum;
 		return 0;
 	}
 }
