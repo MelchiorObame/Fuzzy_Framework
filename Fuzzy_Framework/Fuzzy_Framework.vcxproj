@@ -162,6 +162,8 @@
     <ClInclude Include="BinaryShadowExpression.h" />
     <ClInclude Include="CogDefuzz.h" />
     <ClInclude Include="Expression.h" />
+    <ClInclude Include="ExpressionFactory.h" />
+    <ClInclude Include="FuzzyFactory.h" />
     <ClInclude Include="Is.h" />
     <ClInclude Include="IsGaussian.h" />
     <ClInclude Include="IsRectangle.h" />

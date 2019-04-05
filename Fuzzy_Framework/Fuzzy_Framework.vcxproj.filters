@@ -135,6 +135,12 @@
     <ClInclude Include="SugenoConclusion.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="ExpressionFactory.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="FuzzyFactory.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
