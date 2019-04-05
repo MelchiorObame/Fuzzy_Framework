@@ -12,12 +12,11 @@ namespace fuzzy
 		const std::vector<T> *coeff;
 
 	public:
-		SugenoConclusion(std::vector<T> _coeff) :coeff(_coeff) {};
+		SugenoConclusion(std::vector<T>* _coeff) :coeff(_coeff) {};
 		SugenoConclusion() {};
 		virtual ~SugenoConclusion() {};
 		virtual T evaluate(std::vector < const core::Expression<T>*>*) const;
 	};
-
 
 
 	template<class T>
@@ -26,13 +25,14 @@ namespace fuzzy
 		std::vector<T>::const_iterator iter_coeff = coeff->begin();
 		std::vector<const core::Expression<T>*>::const_iterator iter_expr = operands->begin();
 		T  result = 0;
-		
+		//calcul de Zi : combinaison linéaire .
 		while (iter_coeff != coeff->end() && iter_expr != operands->end()) {
 			T eval = (*iter_expr)->evaluate();  // evaluation de la regle courante
-			result += (*iter_coeff)*eval //multiplication par le coefficient associé
+			result += (*iter_coeff)*eval		//multiplication par le coefficient associé
 			iter_expr++;
 			iter_coeff++;
 		}
+		//mettre le cas : ou la taille du tableau est superieure d'un coef de celui de operands.
 		return result;
 	}
 }

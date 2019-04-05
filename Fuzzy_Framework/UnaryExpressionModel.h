@@ -12,7 +12,7 @@ namespace core
 	{
 	public:
 		UnaryExpressionModel() {};
-		UnaryExpressionModel(UnaryExpression<T>* _operand, UnaryExpression<T>*  _operateur);
+		UnaryExpressionModel(Expression<T>* _operand, UnaryExpression<T>*  _operateur);
 		virtual ~UnaryExpressionModel() {};
 
 		virtual T evaluate() const;
@@ -24,7 +24,7 @@ namespace core
 	};
 
 	template<class T>
-	core::UnaryExpressionModel<T>::UnaryExpressionModel(UnaryExpression<T>* _operand, UnaryExpression<T>* _operateur) :operand(_operand), operateur(_operateur)
+	core::UnaryExpressionModel<T>::UnaryExpressionModel(Expression<T>* _operand, UnaryExpression<T>* _operateur) :operand(_operand), operateur(_operateur)
 	{
 	}
 
