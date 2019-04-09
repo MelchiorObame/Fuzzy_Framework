@@ -22,44 +22,39 @@ namespace core {
 		Expression<T>* right;
 		Is<T>* s;
 	};
+
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newAnd(Expression<T>* _left, Expression<T>* _right) : left(_left), right(_right) const
+	inline Expression<T>* FuzzyFactory<T>::newAnd(Expression<T>* _left, Expression<T>* _right) const
 	{
 		return new Binary(And, left, right);
 	}
-
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newOr(Expression<T>* _left, Expression<T>* _right) : left(_left), right(_right) const
+	inline Expression<T>* FuzzyFactory<T>::newOr(Expression<T>* _left, Expression<T>* _right) const
 	{
 		return new Binary(Or, left, right);
 	}
-
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newThen(Expression<T>* _left, Expression<T>* _right) : left(_left), right(_right) const
+	inline Expression<T>* FuzzyFactory<T>::newThen(Expression<T>* _left, Expression<T>* _right) const
 	{
 		return new Binary(Then, left, right);
 	}
-
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newAgg(Expression<T>* _left, Expression<T>* _right) : left(_left), right(_right) const
+	inline Expression<T>* FuzzyFactory<T>::newAgg(Expression<T>* _left, Expression<T>* _right) const
 	{
 		return new Binary(Agg, left, right);
 	}
-
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T>* _left, Expression<T>* _right) : left(_left), right(_right) const
+	inline Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T>* _left, Expression<T>* _right) const
 	{
 		return new Binary(Defuzz, left, right);
 	}
-
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newNot(Expression<T>* _operand) : operand(_operand) const
+	inline ExpressionModel<T>* FuzzyFactory<T>::newNot(Expression<T>* _operand) const
 	{
 		return new Unary(Not, operand);
 	}
-
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newIs(Is<T>* _s, Expression<T>* _operand) : s(_s), operand(_operand) const
+	inline Expression<T>* FuzzyFactory<T>::newIs(Is<T>* _s, Expression<T>* _operand) const
 	{
 		return new Unary(Is, operand);
 	}
