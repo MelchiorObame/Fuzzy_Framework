@@ -9,6 +9,7 @@ namespace fuzzy
 	class Not : public core::UnaryExpression<T>
 	{
 	public:
+		Not() {};
 		virtual ~Not() {};
 	};
 

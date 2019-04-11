@@ -16,11 +16,6 @@ namespace core {
 		virtual Expression<T>* newBinary(BinaryExpression<T>* _ope, Expression<T>* _left, Expression<T>* _right) const;
 	private:
 		Expression<T>* memory;
-		UnaryExpression<T>* operateur;
-		Expression<T>* operand;
-		Expression<T>* left;
-		Expression<T>* right;
-		BinaryExpression<T>* ope;
 	};
 	template<class T>
 	inline ExpressionFactory<T>::ExpressionFactory(Expression<T>* memory) :memory(_memory)
