@@ -16,8 +16,7 @@ namespace core {
 	class FuzzyFactory : public ExpressionFactory<T>
 	{
 	public:
-		FuzzyFactory(BinaryShadowExpression<T>* _and, BinaryShadowExpression<T>* _or, BinaryShadowExpression<T>* _then, BinaryShadowExpression<T>* _agg, BinaryShadowExpression<T>* _defuzz);
-		FuzzyFactory(UnaryShadowExpression<T>* _not);
+		FuzzyFactory(UnaryExpression<T>* _opNot, BinaryExpression<T>* _opAnd, BinaryExpression<T>* _opOr, BinaryExpression<T>* _opThen, BinaryExpression<T>* _opAgg, BinaryExpression<T>* _opDefuzz);
 		FuzzyFactory() {};
 		virtual ~FuzzyFactory() {};
 		virtual Expression<T>* newAnd(Expression<T>* _left, Expression<T>* _right) const;
@@ -31,94 +30,91 @@ namespace core {
 		virtual void changeOr(Or<T>* _o);
 		virtual void changeThen(Then<T>* _o);
 		virtual void changeAgg(Agg<T>* _o);
+		virtual void changeDefuzz(Defuzz<T>* _o);
 		virtual void changeNot(Not<T>* _o);
 		virtual void changeIs(Is<T>* _o);
 
 	private:
-		BinaryShadowExpression<T>* and, or , then, agg, defuzz;
-		UnaryShadowExpression<T> * not;
+		BinaryShadowExpression<T>* opAnd, opOr , opThen, opAgg, opDefuzz;
+		UnaryShadowExpression<T> * opNot;
+
 	};
 
 	template<class T>
-	inline FuzzyFactory<T>::FuzzyFactory(BinaryShadowExpression<T>* _and, BinaryShadowExpression<T>* _or, BinaryShadowExpression<T>* _then, BinaryShadowExpression<T>* _agg, BinaryShadowExpression<T>* _defuzz):and(_and),or(_or),then(_then),agg(_agg),defuzz(_defuzz)
-	{
-	}
-
-	template<class T>
-	inline FuzzyFactory<T>::FuzzyFactory(UnaryShadowExpression<T>* _not):not(_not)
+	inline FuzzyFactory<T>::FuzzyFactory(UnaryExpression<T>* _opNot, BinaryExpression<T>* _opAnd, BinaryExpression<T>* _opOr, BinaryExpression<T>* _opThen, BinaryExpression<T>* _opAgg, BinaryExpression<T>* _opDefuzz) :
+		opNot(_opNot), opAnd(_opAnd), opOr(_opOr), opThen(_opThen), opAgg(_opAgg), opDefuzz(_opDefuzz)
 	{
 	}
 
 	template<class T>
 	inline Expression<T>* FuzzyFactory<T>::newAnd(Expression<T>* _left, Expression<T>* _right) const
 	{
-		return new BinaryShadowExpression(And<T>* , left, right);
+		return newBinary(opAnd, left, right);
 	}
 	template<class T>
 	inline Expression<T>* FuzzyFactory<T>::newOr(Expression<T>* _left, Expression<T>* _right) const
 	{
-		return new BinaryShadowExpression(Or<T>*, left, right);
+		return newBinary(opOr, left, right);
 	}
 	template<class T>
 	inline Expression<T>* FuzzyFactory<T>::newThen(Expression<T>* _left, Expression<T>* _right) const
 	{
-		return new BinaryShadowExpression(Then<T>*, left, right);
+		return newBinary(opThen, left, right);
 	}
 	template<class T>
 	inline Expression<T>* FuzzyFactory<T>::newAgg(Expression<T>* _left, Expression<T>* _right) const
 	{
-		return new BinaryShadowExpression(Agg<T>*, left, right);
+		return newBinary(opAgg, left, right);
 	}
 	template<class T>
 	inline Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T>* _left, Expression<T>* _right) const
 	{
-		return new BinaryShadowExpression(Defuzz<T>*, left, right);
+		return newBinary(opDefuzz, left, right);
 	}
 	template<class T>
 	inline Expression<T>* FuzzyFactory<T>::newNot(Expression<T>* _operand) const
 	{
-		return new UnaryShadowExpression(Not<T>*, operand);
+		return newUnary(opNot, operand);
 	}
 	template<class T>
 	inline Expression<T>* FuzzyFactory<T>::newIs(Is<T>* _s, Expression<T>* _operand) const
 	{
-		return new UnaryShadowExpression(Is<T>*, operand);
+		return newUnary(_s, operand);
 	}
 	template<class T>
 	inline void FuzzyFactory<T>::changeAnd(And<T>* _o)
 	{
-		And a;
-		a.SetOpe(_o);
+		opAnd->setTarget(o);
 	}
 	template<class T>
 	inline void FuzzyFactory<T>::changeOr(Or<T>* _o)
 	{
-		Or o;
-		o.SetOpe(_o);
+		opOr->setTarget(o);
 	}
 	template<class T>
 	inline void FuzzyFactory<T>::changeThen(Then<T>* _o)
 	{
-		Then t;
-		t.SetOpe(_o);
+		opThen->setTarget(o);
 	}
 	template<class T>
 	inline void FuzzyFactory<T>::changeAgg(Agg<T>* _o)
 	{
-		Agg agg;
-		agg.SetOpe(_o);
+		opAgg->setTarget(o);
+	}
+	template<class T>
+	inline void FuzzyFactory<T>::changeDefuzz(Defuzz<T>* _o)
+	{
+		opDefuzz->setTarget(o);
 	}
 	template<class T>
 	inline void FuzzyFactory<T>::changeNot(Not<T>* _o)
 	{
-		Not n;
-		n.SetOpe(_o);
+		opNot->setTarget(o);
 	}
 	template<class T>
 	inline void FuzzyFactory<T>::changeIs(Is<T>* _o)
 	{
-		Is i;
-		i.SetOpe(_o);
+		opIs->setTarget(o);
 	}
 }
 #endif
