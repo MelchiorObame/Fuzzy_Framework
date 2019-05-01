@@ -184,32 +184,26 @@ void TestBinaryOperation() {
 void testMamdani()
 {
 	//operators
-	NotMinus1<float>         opNot;
+	NotMinus1<float>        opNot;
 	AndMin<float>           opAnd;
 	OrMax<float>            opOr;
 	ThenMin<float>          opThen;
-	AggPlus<float>          opAgg;  //
+	AggPlus<float>          opAgg;
 	CogDefuzz<float>        opDefuzz;
 
 	//fuzzy expression factory
 	FuzzyFactory<float> f(&opNot,&opAnd,&opOr,&opThen,&opAgg,&opDefuzz);
-	//FuzzyFactory<float> f(&opNot, &opAnd, &opOr, &opThen, &opOr, &opDefuzz);   cas de l'exemple de cours
 
 	//membership function
-
 	//service
 	IsTriangle<float> poor(-5,0,5);
 	IsTriangle<float> good(0,5,10);
 	IsTriangle<float> excellent(5,10,15);
 
-	//food
-	IsTriangle<float> rancid(-5,0,5);
-	IsTriangle<float> delicious(5,10,15);
-
 	//tips
-	IsTriangle<float> cheap(0,5,10);
-	IsTriangle<float> average(10,15,20);
-	IsTriangle<float> generous(20,25,30);
+	IsTriangle<float> cheap(0, 5, 10);
+	IsTriangle<float> average(10, 15, 20);
+	IsTriangle<float> generous(20, 25, 30);
 
 	//values
 	ValueModel<float> service(0);
@@ -220,11 +214,8 @@ void testMamdani()
 		f.NewAgg(
 			f.NewAgg(
 				f.NewThen(
-					f.NewOr(
 						f.NewIs(&poor, &service),
-						f.NewIs(&rancid, &food)
-					),
-					f.NewIs(&cheap, &tips)
+						f.NewIs(&cheap, &tips)
 				),
 				f.NewThen(
 					f.NewIs(&good, &service),
@@ -232,11 +223,8 @@ void testMamdani()
 				)
 			),
 			f.NewThen(
-				f.NewOr(
 					f.NewIs(&excellent, &service),
-					f.NewIs(&delicious, &food)
-				),
-				f.NewIs(&generous, &tips)
+					f.NewIs(&generous, &tips)
 			)
 		);
 
@@ -244,16 +232,13 @@ void testMamdani()
 	core::Expression<float> *system = f.NewDefuzz(&tips, r, 0, 25, 1);
 
 	//apply input
-	float s, foo;
+	float s;
 
 	while (true)
 	{
 		cout << "service : ";
 		cin >> s;
 		service.setValue(s);
-		cout << "food : ";
-		cin >> foo;
-		food.setValue(foo);
 		std::cout << "tips -> " << system->evaluate() << std::endl;
 	}
 }
@@ -282,12 +267,14 @@ void testSugenoDefuzz()
 	IsTriangle<float> poor(-5,0,5);
 	IsTriangle<float> good(0,5,10);
 	IsTriangle<float> excellent(5,10,15);
-	// food
-	IsTriangle<float> rancid(-5,0,5);
-	IsTriangle<float> delicious(5,10,15);
+	//tips
+	IsTriangle<float> cheap(0, 5, 10);
+	IsTriangle<float> average(10, 15, 20);
+	IsTriangle<float> generous(20, 25, 30);
 	//values
 	ValueModel<float> service(0);
 	ValueModel<float> food(0);
+	ValueModel<float> tips(0);
 
 	//output : ces variables vont stocker le résultat de SujenoConclusion (zi)
 	vector<const core::Expression<float>*> SC_service_food;
@@ -299,44 +286,34 @@ void testSugenoDefuzz()
 
 	//rules
 	vector<const core::Expression<float>*> rules;
-
 	rules.push_back(
 		f.NewThen(
-			f.NewOr(
-				f.NewIs(&poor, &service),
-				f.NewIs(&rancid, &food)
-			),
-			f.NewNConclusion(&SC_service_food)
+			f.NewIs(&poor, &service),
+			f.NewIs(&cheap, &tips)
 		));
 
 	rules.push_back(
 		f.NewThen(
 			f.NewIs(&good, &service),
-			f.NewNConclusion(&SC_service)
+			f.NewIs(&average, &tips)
 		));
 
 	rules.push_back(
 		f.NewThen(
-			f.NewOr(
-				f.NewIs(&excellent, &service),
-				f.NewIs(&delicious, &food)
-			),
-			f.NewNConclusion(&SC_service_food)
+			f.NewIs(&excellent, &service),
+			f.NewIs(&generous, &tips)
 		));
 
 	//defuzzification
 	Expression<float> *system = f.NewSugeno(&rules);
 
 	//apply input
-	float s, foo;
+	float s;
 	while (true)
 	{
 		cout << "service : ";
 		cin >> s;
 		service.setValue(s);
-		cout << "food : ";
-		cin >> foo;
-		food.setValue(foo);
 		cout << "tips -> " << system->evaluate() << endl;
 	}
 }
@@ -348,7 +325,6 @@ int main(int argc, _TCHAR* argv[])
 	TestUnaryOperation();
 	TestBinaryOperation();
 	cout << ">> All Test :ok" << "\n" <<endl;
-
 
 	unsigned select;
 	cout << "choose system :" << endl;
@@ -368,7 +344,5 @@ int main(int argc, _TCHAR* argv[])
 		testSugenoDefuzz();
 	}
 
-	
-	
 	return 0;
 }
