@@ -20,7 +20,7 @@ namespace core
 
 	template <class T>
 	void ValueModel<T>::setValue(const T& _value){
-		this->value = _value;
+		value = _value;
 	}
 
 	template <class T>

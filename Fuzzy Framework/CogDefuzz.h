@@ -10,7 +10,7 @@ namespace fuzzy
 	{
 	public:
 		CogDefuzz() {};
-		~CogDefuzz() {};
+		virtual ~CogDefuzz() {};
 
 	protected:
 		virtual T Defuzz(const Shape&) const;
@@ -20,11 +20,9 @@ namespace fuzzy
 	T CogDefuzz<T>::Defuzz(const Shape& s) const
 	{
 		std::vector<T> product;
-
 		std::vector<T>::const_iterator iteratorX = s.first.begin();
 		std::vector<T>::const_iterator iteratorY = s.second.begin();
 		
-
 		for (; iteratorY != s.second.end(); ++iteratorY, ++iteratorX)
 			product.push_back(*iteratorX * *iteratorY);
 

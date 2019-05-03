@@ -25,6 +25,7 @@ namespace fuzzy
 		std::vector<T>::template const_iterator iter_coeff = coeff->begin();
 		std::vector<const core::Expression<T>*>::template const_iterator iter_expr = operands->begin();
 		T  result = 0;
+
 		//calcul de Zi : combinaison linéaire .
 		while (iter_coeff != coeff->end() && iter_expr != operands->end()) {
 			T eval = (*iter_expr)->evaluate();  // evaluation de la regle courante
@@ -32,7 +33,6 @@ namespace fuzzy
 			iter_expr++;
 			iter_coeff++;
 		}
-		//mettre le cas : ou la taille du tableau est superieure d'un coef de celui de operands.
 		return result;
     }
 }

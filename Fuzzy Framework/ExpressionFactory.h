@@ -24,8 +24,7 @@ namespace core
 		Memory memory;
 
 	protected:
-		Expression<T>* Hold(Expression<T>*); //ajoute dans la mémoire et renvoie l'expression
-
+		Expression<T>* Hold(Expression<T>*);   //ajoute dans la mémoire et renvoie l'expression
 	};
 
 

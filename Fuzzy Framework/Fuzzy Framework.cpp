@@ -36,10 +36,10 @@ void ValueModelTest() {
 
 void AndMinTest()
 {
-	AndMin<float> op;
-	ValueModel<float> value1(0.4f), value2(0.7f);
-	ValueModel<float> min = op.evaluate(&value1, &value2);
-	assert(min.evaluate() == 0.4f);
+	AndMin<int> op;
+	ValueModel<int> value1(6), value2(2);
+	ValueModel<int> min = op.evaluate(&value1, &value2);
+	assert(min.evaluate() == 2);
 }
 
 void AndMultTest()
@@ -158,7 +158,6 @@ void IsSigmoidTest()
 	assert(result.evaluate() == 1 / (1 + exp(-pente * (value.evaluate() - inflection))));
 }
 
-
 void TestUnaryOperation() {
 	ValueModelTest();
 	NotMinus1Test();
@@ -180,8 +179,7 @@ void TestBinaryOperation() {
 	AggMaxTest();
 }
 
-
-void testMamdani()
+void testMamdaniDuCours()
 {
 	//operators
 	NotMinus1<float>        opNot;
@@ -243,78 +241,163 @@ void testMamdani()
 	}
 }
 
+void testMamdani() {
+	//operators
+	NotMinus1<float>        opNot;
+	AndMin<float>           opAnd;
+	OrMax<float>            opOr;
+	ThenMin<float>          opThen;
+	AggPlus<float>          opAgg;
+	CogDefuzz<float>        opDefuzz;
+
+	//fuzzy expession factory
+	FuzzyFactory<float> f(&opNot, &opAnd, &opOr, &opThen, &opAgg, &opDefuzz);
+
+	//membership function
+	//service
+	IsTriangle<float> poor(-5, 0, 5);
+	IsTriangle<float> good(0, 5, 10);
+	IsTriangle<float> excellent(5, 10, 15);
+	//food
+	IsTriangle<float> rancid(-5, 0, 5);
+	IsTriangle<float> delicious(5, 10, 15);
+	//tips
+	IsTriangle<float> cheap(0, 5, 10);
+	IsTriangle<float> average(10, 15, 20);
+	IsTriangle<float> generous(20, 25, 30);
+
+	//values
+	ValueModel<float> service(0);
+	ValueModel<float> food(0);
+	ValueModel<float> tips(0);
+
+	Expression<float> *r =
+		f.NewAgg(
+			f.NewAgg(
+				f.NewThen(
+					f.NewOr(
+						f.NewIs(&poor, &service),
+						f.NewIs(&rancid, &food)
+					),
+					f.NewIs(&cheap, &tips)
+				),
+				f.NewThen(
+					f.NewIs(&good, &service),
+					f.NewIs(&average, &tips)
+				)
+			),
+			f.NewThen(
+				f.NewOr(
+					f.NewIs(&excellent, &service),
+					f.NewIs(&delicious, &food)
+				),
+				f.NewIs(&generous, &tips)
+			)
+		);
+
+	//defuzzification
+	Expression<float> *system = f.NewDefuzz(&tips, r, 0, 25, 1);
+	float s, fo;
+	while (true)
+	{
+		std::cout << "service : ";
+		std::cin >> s;
+		service.setValue(s);
+		std::cout << "food : ";
+		std::cin >> fo;
+		food.setValue(fo);
+		std::cout << "tips -> " << system->evaluate() << std::endl;
+	}
+}
+
 void testSugenoDefuzz()
 {
 	//operators
 	NotMinus1<float>     opNot;
 	AndMin<float>       opAnd;
 	OrMax<float>        opOr;
-    SugenoThen<float>   opThen;
+	SugenoThen<float>   opThen;
 	AggMax<float>       opAgg;
 	SugenoDefuzz<float> opSugDefuzz;
 
-	vector<float> coef;
+	std::vector<float> coef;
 	coef.push_back(1);
 	coef.push_back(1);
 	coef.push_back(1);
-	SugenoConclusion<float> opConclusion(&coef);
 
-	//fuzzy expression factory
-	FuzzyFactory<float> f(&opNot,&opAnd,&opOr,&opThen,&opAgg,&opSugDefuzz,&opConclusion);
+	//affectation du tableau de coefficient à notre tableau
+	SugenoConclusion<float> opSugConclusion = SugenoConclusion<float>(&coef);
+
+	//fuzzy expession factory
+	FuzzyFactory<float> f(&opNot, &opAnd, &opOr, &opThen, &opAgg, &opSugDefuzz, &opSugConclusion);
 
 	//membership function
 	// service
-	IsTriangle<float> poor(-5,0,5);
-	IsTriangle<float> good(0,5,10);
-	IsTriangle<float> excellent(5,10,15);
+	IsTriangle<float> poor(-5, 0, 5);
+	IsTriangle<float> good(0, 5, 10);
+	IsTriangle<float> excellent(5, 10, 15);
+	// food
+	IsTriangle<float> rancid(-5, 0, 5);
+	IsTriangle<float> delicious(5, 10, 15);
 	//tips
 	IsTriangle<float> cheap(0, 5, 10);
 	IsTriangle<float> average(10, 15, 20);
 	IsTriangle<float> generous(20, 25, 30);
 	//values
 	ValueModel<float> service(0);
-	ValueModel<float> food(0);
 	ValueModel<float> tips(0);
+	ValueModel<float> food(0);
 
-	//output : ces variables vont stocker le résultat de SujenoConclusion (zi)
-	vector<const core::Expression<float>*> SC_service_food;
-	SC_service_food.push_back(&service);
-	SC_service_food.push_back(&food);
+	//output : ces variables vont stocker le résultat de SugenoConclusion (zi)
+	std::vector<const Expression<float>*> SugConclu_service_food;
+	SugConclu_service_food.push_back(&service);
+	SugConclu_service_food.push_back(&food);
 
-	vector<const core::Expression<float>*> SC_service;
+	std::vector<const Expression<float>*> SC_service;
 	SC_service.push_back(&service);
 
 	//rules
-	vector<const core::Expression<float>*> rules;
-	rules.push_back(
+	Expression<float> *r =
 		f.NewThen(
-			f.NewIs(&poor, &service),
-			f.NewIs(&cheap, &tips)
-		));
+			f.NewOr(
+				f.NewIs(&poor, &service),
+				f.NewIs(&rancid, &food)
+			),
+			f.NewNConclusion(&SugConclu_service_food)
+		);
 
-	rules.push_back(
+	Expression<float> *r1 =
 		f.NewThen(
 			f.NewIs(&good, &service),
-			f.NewIs(&average, &tips)
-		));
+			f.NewNConclusion(&SC_service)
+		);
 
-	rules.push_back(
+	Expression<float> *r2 =
 		f.NewThen(
-			f.NewIs(&excellent, &service),
-			f.NewIs(&generous, &tips)
-		));
+			f.NewOr(
+				f.NewIs(&excellent, &service),
+				f.NewIs(&delicious, &food)
+			),
+			f.NewNConclusion(&SugConclu_service_food)
+		);
 
+	std::vector<const Expression<float>*> operands;
+	operands.push_back(r);
+	operands.push_back(r1);
+	operands.push_back(r2);
+	
 	//defuzzification
-	Expression<float> *system = f.NewSugeno(&rules);
-
-	//apply input
-	float s;
+	Expression<float> *system = f.NewSugeno(&operands);
+	float s, foo;
 	while (true)
 	{
-		cout << "service : ";
-		cin >> s;
+		std::cout << "service : ";
+		std::cin >> s;
 		service.setValue(s);
-		cout << "tips -> " << system->evaluate() << endl;
+		std::cout << "food : ";
+		std::cin >> foo;
+		food.setValue(foo);
+		std::cout << "tips -> " << system->evaluate() << std::endl;
 	}
 }
 
@@ -328,10 +411,16 @@ int main(int argc, _TCHAR* argv[])
 
 	unsigned select;
 	cout << "choose system :" << endl;
+	cout << "\t" << "0: Mamdani Exemple du cours" << endl;
 	cout << "\t" << "1: Mamdani" << endl;
 	cout << "\t" << "2: Sugeno" << endl;
 	cout << "\t" << "::=> ";
 	cin >> select;
+
+	if (select == 0) {
+		cout << "---- MAMDANI EXEMPLE DU COURS ----" << endl;
+		testMamdaniDuCours();
+	}
 
 	if (select == 1)
 	{
@@ -343,6 +432,5 @@ int main(int argc, _TCHAR* argv[])
 		cout << "---- SUGENO ----" << endl;
 		testSugenoDefuzz();
 	}
-
 	return 0;
 }

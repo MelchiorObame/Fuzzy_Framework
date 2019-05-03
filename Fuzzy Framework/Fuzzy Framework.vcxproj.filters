@@ -144,9 +144,6 @@
     <ClInclude Include="IsSigmoid.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>
-    <ClInclude Include="NotMinus.h">
-      <Filter>Fichiers d%27en-tête\fuzzy</Filter>
-    </ClInclude>
     <ClInclude Include="NotMinus1.h">
       <Filter>Fichiers d%27en-tête\fuzzy</Filter>
     </ClInclude>

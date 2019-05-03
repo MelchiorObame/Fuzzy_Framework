@@ -13,6 +13,7 @@ namespace fuzzy
 		std::ostream& PrintShape(const Shape&, std::ostream&) const;
 	};
 
+
 	template <class T>
 	typename Evaluator<T>::Shape Evaluator<T>::BuildShape(const T& min, const T& max, const T& step, core::ValueModel<T>* value, core::Expression<T>* e) const
 	{
@@ -23,11 +24,10 @@ namespace fuzzy
 		{
 			value->setValue(i);
 			x.push_back(i);
+			//y.push_back(value->evaluate());    // l'evaluation de l'abscisse value.
 			y.push_back(e->evaluate());
 		}
-
 		value->setValue(mem);  // pour éviter les effets de bord
-
 		return Shape(x, y);   // instanciation de la forme à partir de x et y
 	}
 
@@ -36,7 +36,7 @@ namespace fuzzy
 	{
 		for (std::vector<T>::const_iterator iteratY = s.second.begin(); iteratY != s.second.end(); iteratY++)
 		{
-			unsigned compteur = (unsigned) ((*iteratY) * 10);
+			unsigned compteur = (unsigned) ((*iteratY)* 10);
 
 			while (compteur != 0)
 			{
