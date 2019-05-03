@@ -401,6 +401,82 @@ void testSugenoDefuzz()
 	}
 }
 
+void temperatureHumidity() {
+	//operators
+	NotMinus1<float>        opNot;
+	AndMin<float>           opAnd;
+	OrMax<float>            opOr;
+	ThenMin<float>          opThen;
+	AggPlus<float>          opAgg;
+	CogDefuzz<float>        opDefuzz;
+
+	//fuzzy expession factory
+	FuzzyFactory<float> f(&opNot, &opAnd, &opOr, &opThen, &opAgg, &opDefuzz);
+
+
+	float mean, stdDev;
+	mean = 3.4f, stdDev = 0.7f;
+	float pente, inflection;
+	pente = 0.7f, inflection = 2.0f;
+	//membership function
+	//temperature  :: on la prend comme confortable par defaut
+	IsGaussian<float> cosy(mean, stdDev);
+	IsSigmoid<float> hight(pente, inflection);
+	//humidity
+	IsSigmoid<float> hightHumidity(0.7f, 3.0f);
+	IsGaussian<float> mediumHumidity(mean, stdDev);
+	IsTriangle<float> lowHumidity(-5, 0, 4);
+	//présence au terrain
+	IsTrapeze<float> faible(0 ,2, 4, 6);
+	IsSigmoid<float> forte(1.4f, 3.0f);
+
+	//values
+	ValueModel<float> temperature(0);
+	ValueModel<float> humidity(0);
+	ValueModel<float> frequentation(0);
+
+	Expression<float> *rules =
+		f.NewAgg(
+			f.NewAgg(
+				f.NewThen(
+					f.NewAnd(
+						f.NewIs(&cosy, &temperature),
+						f.NewIs(&lowHumidity, &humidity)
+					),
+					f.NewIs(&faible, &frequentation)
+				),
+				f.NewThen(
+					f.NewOr(
+						f.NewIs(&hight, &temperature),
+						f.NewIs(&hightHumidity, &humidity)
+					),
+					f.NewIs(&faible, &frequentation)
+				)
+			), 
+			f.NewThen(
+				f.NewAnd(
+					f.NewIs(&cosy, &temperature),
+					f.NewIs(&mediumHumidity, &humidity)
+				),
+				f.NewIs(&forte, &frequentation)
+			)
+		);
+
+	//defuzzification
+	Expression<float> *system = f.NewDefuzz(&frequentation, rules, 0, 25, 1);
+	float temp, hum;
+	while (true)
+	{
+		cout << "temperature : ";
+		cin >> temp;
+		temperature.setValue(temp);
+		cout << "humidity : ";
+		cin >> hum;
+		humidity.setValue(hum);
+		std::cout << "frequentation -> " << system->evaluate() *4<<" % "<< std::endl;
+	}
+}
+
 int main(int argc, _TCHAR* argv[])
 {
 	cout << "~ Fuzzy Framework ~" << endl;
@@ -414,6 +490,7 @@ int main(int argc, _TCHAR* argv[])
 	cout << "\t" << "0: Mamdani Exemple du cours" << endl;
 	cout << "\t" << "1: Mamdani" << endl;
 	cout << "\t" << "2: Sugeno" << endl;
+	cout << "\t" << "3: TEMPERATURE AND HUMIDITY" << endl;
 	cout << "\t" << "::=> ";
 	cin >> select;
 
@@ -431,6 +508,11 @@ int main(int argc, _TCHAR* argv[])
 	else if (select == 2) {
 		cout << "---- SUGENO ----" << endl;
 		testSugenoDefuzz();
+	}
+
+	else if (select == 3) {
+		cout << "---- TEMPERATURE AND HUMIDITY ----" << endl;
+		temperatureHumidity();
 	}
 	return 0;
 }
